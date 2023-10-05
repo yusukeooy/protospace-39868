@@ -50,6 +50,7 @@ class PrototypesController < ApplicationController
     params.require(:prototype).permit(:title, :catch_copy, :concept, :image).merge(user_id: current_user.id)
   end
 
+  
   def check_owner
     @prototype = Prototype.find(params[:id])
     unless current_user == @prototype.user
